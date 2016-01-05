@@ -1,0 +1,108 @@
+table.game {
+   background-color: #C0C0C0;
+}
+
+caption {
+   background-color: #C0C0C0;
+}
+
+
+/* Items on the game header row */
+.gameHeader {
+  font-weight: bold;
+  font-size: 21px;
+  margin: 5px;
+}
+
+.bombsRemaining {
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  color: red;
+}
+
+.elapsedSeconds {
+  float: right;
+  text-align: right;
+}
+
+/* Game status */
+.gameStatus {
+   margin: 10px;
+   float: right;
+   position: relative;
+   left: -50%;
+
+   height: 32px;
+   width: 32px;
+
+   background-repeat: no-repeat;
+   background-size: contain;
+
+   vertical-align: middle;
+ }
+
+.gameStatus-START, .gameStatus-PLAYING {
+   background-image: url('../img/smiley1.ico');
+ }
+
+.gameStatus-LOST {
+   background-image: url('../img/smiley3.ico');
+ }
+
+.gameStatus-WON {
+   background-image: url('../img/smiley.ico');
+ }
+
+/* Tile and tile status */
+td.gameTile {
+   height: 32px;
+   width: 32px;
+
+   background-repeat: no-repeat;
+   background-size: contain;
+
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tileStatus-BOMB {
+   background-image: url('../img/mine2.ico');
+ }
+
+.tileStatus-FINAL_BOMB {
+   background-color: red;
+   background-image: url('../img/mine2.ico');
+ }
+
+.tileStatus-FLAGGED {
+   background-image: url('../img/tile3.ico');
+ }
+
+.tileStatus-HIDDEN {
+   background-image: url('../img/tile.ico');
+ }
+
+.tileStatus-VISIBLE {
+}
+
+/* Bombs around */
+.bombsAround {
+   font-weight: bold;
+}
+
+.bombsAround-1 {
+   color: blue;
+}
+
+.bombsAround-2 {
+   color: green;
+}
+
+.bombsAround-3 {
+   color: orange;
+}
+
+.bombsAround-4 {
+   color: red;
+}

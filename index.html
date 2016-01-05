@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="minesweeper" ng-controller="MinesweeperController">
+<head>
+<meta charset="utf-8" />
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minesweeper</title>
+
+<link rel="stylesheet" href="css/bootstrap3/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap3/bootstrap-theme.css">
+<link rel="stylesheet" href="css/minesweeper.css">
+
+<script src="lib/angular.js"></script>
+
+<script src="src/main/javascript/init.js"></script>
+<script src="src/main/javascript/Game.js"></script>
+<script src="src/main/javascript/Square.js"></script>
+<script src="src/main/javascript/MinesweeperController.js"></script>
+<script src="src/main/javascript/rightClick.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-6 pull-left">
+                        <h1 class="brand2">Minesweeper</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 content">
+		      <div ng-include="'game.html'"></div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container2 -->
+        </div>
+        <!-- end first row child in container -->
+    </div>
+    <!-- end container-->
+
+</body>
+</html>

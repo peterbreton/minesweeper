@@ -1,0 +1,27 @@
+<div>
+
+<div>
+  <a href="#" ng-click="initialize('easy');">Easy</a>
+  <a href="#" ng-click="initialize('medium');">Medium</a>
+  <a href="#" ng-click="initialize('expert')">Expert</a>
+</div>
+
+<table class="game">
+
+  <caption>
+      <button class="btn btn-default gameHeader bombsRemaining">{{bombsRemaining()}}</button>
+      <span class="gameStatus gameStatus-{{gameStatus()}}" ng-click="resetGame()"></span>
+      <button class="btn btn-default gameHeader elapsedSeconds">{{elapsedSeconds()}}</button>
+  </caption>
+
+  <tr ng-repeat="row in gridWidth" class="gameRow">
+    <td ng-repeat="column in gridHeight"
+	ng-click="reveal(row,column);"
+	ng-right-click="toggleFlag(row, column)"
+	class="gameTile tileStatus-{{tileStatus(row, column)}}">
+      <span class="bombsAround bombsAround-{{bombsAround(row,column)}}">{{bombsAround(row,column)}}</span>
+    </td>
+  </tr>
+</table>
+
+</div>

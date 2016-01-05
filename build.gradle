@@ -1,0 +1,8 @@
+plugins {
+  id "com.moowork.node" version "0.11"
+}
+
+task karma(type: NodeTask) {
+  script = file('/home/pbreton/tools/node_modules/karma/bin/karma')
+  args = ['start', 'etc/test/karma.conf.js']
+}
