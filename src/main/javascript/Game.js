@@ -28,12 +28,12 @@ angular.module('minesweeper').service('Game', ['Square', function(Square) {
 	this._status = s;
     };
 
-    Game.prototype.bombsRemaining = function(t) {
+    Game.prototype.unflaggedBombs = function(t) {
 	if (t === undefined) {
-	    return this._bombsRemaining;
+	    return this._unflaggedBombs;
 	}
 
-	this._bombsRemaining = t;
+	this._unflaggedBombs = t;
     };
 
     Game.prototype.startTime = function(t) {
@@ -89,8 +89,17 @@ angular.module('minesweeper').service('Game', ['Square', function(Square) {
 	return this.randomSquare(alreadyAssigned);
     };
 
+    Game.prototype.excludedSquares = function(startingSquare) {
+
+        var excluded = this.neighbors(startingSquare);
+        excluded.push(startingSquare);
+
+        return excluded;
+    };
+
     Game.prototype.assignBombs = function(startingSquare) {
-	var assigned = [ startingSquare ];
+
+	var assigned = this.excludedSquares(startingSquare);
 
 	for(var i = 0; i < this._bombs; i++) {
 	    var s = this.randomSquare(assigned);
@@ -99,6 +108,7 @@ angular.module('minesweeper').service('Game', ['Square', function(Square) {
 
 	var g = this;
 
+        // Mark each square with the number of bombs around it
 	this.eachSquare(function(s) {
 	    s.bombsAround(g.bombsAround(s));
 	});
@@ -235,7 +245,7 @@ angular.module('minesweeper').service('Game', ['Square', function(Square) {
 	square.toggleFlag();
 
 	var adjust = square.flagged() ? -1 : 1;
-	this.bombsRemaining(this.bombsRemaining() + adjust);
+	this.unflaggedBombs(this.unflaggedBombs() + adjust);
     };
 
     Game.prototype.showAll = function() {
@@ -274,7 +284,7 @@ angular.module('minesweeper').service('Game', ['Square', function(Square) {
 	    _columns: columns,
 	    _grid: [],
 	    _bombs: bombs,
-	    _bombsRemaining: bombs,
+	    _unflaggedBombs: bombs,
 	    _startTime: new Date()
 	});
 

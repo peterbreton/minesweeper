@@ -97,7 +97,7 @@ angular.module('minesweeper')
 	    return $scope.settings.bombs;
 	}
 
-	return $scope.game.bombsRemaining();
+	return $scope.game.unflaggedBombs();
     }
 
     $scope.bombsAround = function(row, column) {

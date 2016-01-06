@@ -41,22 +41,22 @@ describe('Game', function() {
         it('changes bombs remaining when flag is toggled', function() {
 	    var g = Game.create(3,3,3);
 
-	    expect(g.bombsRemaining()).toBe(3);
+	    expect(g.unflaggedBombs()).toBe(3);
 
 	    // One flag down
 	    g.toggleFlag(1,1);
 
-	    expect(g.bombsRemaining()).toBe(2);
+	    expect(g.unflaggedBombs()).toBe(2);
 
 	    // Another flag down
 	    g.toggleFlag(1,2);
 
-	    expect(g.bombsRemaining()).toBe(1);
+	    expect(g.unflaggedBombs()).toBe(1);
 
 	    // Restore one
 	    g.toggleFlag(1,2);
 
-	    expect(g.bombsRemaining()).toBe(2);
+	    expect(g.unflaggedBombs()).toBe(2);
         });
 
         it('calculates elapsed seconds', function() {
